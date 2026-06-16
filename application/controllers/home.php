@@ -5,12 +5,25 @@ class Home extends CI_Controller {
 
     public function index()
     {
-        $data['title']  = 'Beranda - SMP Negeri 100 Maluku Tengah';
-        $data['active'] = 'beranda';
+        $data = [
+            'title'  => 'Beranda - SMP Negeri 100 Maluku Tengah',
+            'active' => 'beranda'
+        ];
 
         $this->load->view('templates/header', $data);
         $this->load->view('home/index', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/footer');
     }
 
+    public function berita()
+    {
+        $data = [
+            'title'  => 'Berita Sekolah',
+            'active' => 'berita'
+        ];
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('home/berita', $data);
+        $this->load->view('templates/footer');
+    }
 }

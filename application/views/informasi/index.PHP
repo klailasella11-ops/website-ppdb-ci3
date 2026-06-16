@@ -33,7 +33,7 @@
         </div>
         <div class="sambutan-text reveal">
           <h2>SMP NEGERI 100 MALUKU TENGAH</h2>
-          <div class="kepsek-name">Siti Nursam Tualeka, S.Pd.</div>
+          <div class="kepsek-name">Nursam Tualeka, S.Pd.</div>
           <p>Puji syukur kami panjatkan ke hadirat Tuhan Yang Maha Esa atas segala rahmat dan karunia-Nya. Dengan penuh semangat, kami menghadirkan website resmi SMP Negeri 100 Maluku Tengah sebagai jendela informasi dan wadah komunikasi bagi seluruh warga sekolah dan masyarakat.<br><br>
           Kami terus berkomitmen menghadirkan lingkungan belajar yang aman, nyaman, dan inspiratif guna membentuk generasi yang berprestasi dan berkarakter. Sebagai salah satu sekolah tertua di Provinsi Maluku sejak tahun 1952, kami senantiasa melangkah maju mengikuti perkembangan zaman tanpa melupakan nilai-nilai luhur pendidikan.
           <br><br>Semoga website ini dapat menjadi sumber informasi yang bermanfaat serta mempererat kebersamaan kita semua.</p>
@@ -57,14 +57,14 @@
             <div class="guru-avatar">
               <img src="<?= base_url('assets/img/guru/nursam.jpg') ?>" alt="Nursam Tualeka">
             </div>
-            <h4>Siti Nursam Tualeka, S.Pd.</h4>
+            <h4> Nursam Tualeka, S.Pd.</h4>
             <p class="mapel">Kepala Sekolah</p>
             <p class="nip">NIP: 198205142009042001</p>
             <span class="guru-badge kepsek">Kepala Sekolah</span>
           </div>
           <div class="guru-card">
             <div class="guru-avatar">👩‍🏫</div>
-            <h4>Damiana Watugulyar, A.Md.</h4>
+            <h4>Damiana Watunglawar, A.Md.</h4>
             <p class="mapel">Wakil Kepala Sekolah</p>
             <p class="nip">NIP: 197108242003122006</p>
             <span class="guru-badge wakasek">Wakil Kepala</span>
@@ -83,8 +83,8 @@
       <div class="guru-group reveal">
         <div class="guru-group-title"><span class="guru-group-icon">🗂️</span> Bagian Administrasi</div>
         <div class="guru-grid">
-          <div class="guru-card"><div class="guru-avatar">👨‍💼</div><h4>Abd. Rakin Latucosina</h4><p class="mapel">Kepala Tata Usaha</p><p class="nip">NIP: 197904062008011023</p><span class="guru-badge tu">Kepala TU</span></div>
-          <div class="guru-card"><div class="guru-avatar">👨‍💻</div><h4>Mukri Latucosina</h4><p class="mapel">Operator Sekolah</p><p class="nip">NIP: 197505302007011019</p><span class="guru-badge tu">Operator</span></div>
+          <div class="guru-card"><div class="guru-avatar">👨‍💼</div><h4>Abd. Rakip Latuconsina</h4><p class="mapel">Kepala Tata Usaha</p><p class="nip">NIP: 197904062008011023</p><span class="guru-badge tu">Kepala TU</span></div>
+          <div class="guru-card"><div class="guru-avatar">👨‍💻</div><h4>Mukri Latuconsina</h4><p class="mapel">Operator Sekolah</p><p class="nip">NIP: 197505302007011019</p><span class="guru-badge tu">Operator</span></div>
           <div class="guru-card"><div class="guru-avatar">👩‍💼</div><h4>Saadia Tuasikal</h4><p class="mapel">Bendahara BOS</p><p class="nip">NIP: 197210182007012017</p><span class="guru-badge tu">Bendahara</span></div>
         </div>
       </div>
@@ -93,8 +93,8 @@
       <div class="guru-group reveal">
         <div class="guru-group-title"><span class="guru-group-icon">📌</span> Koordinator &amp; Penanggung Jawab</div>
         <div class="guru-grid">
-          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Rasida Latuconsina</h4><p class="mapel">KAUR Kurikulum</p><p class="nip">&nbsp;</p><span class="guru-badge koordinator">Kurikulum</span></div>
-          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Fatima Y. Tuharea, S.Pd.</h4><p class="mapel">KAUR Kesiswaan</p><p class="nip">&nbsp;</p><span class="guru-badge koordinator">Kesiswaan</span></div>
+          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Napsiah Angkotasan</h4><p class="mapel">KAUR Kurikulum</p><p class="nip">&nbsp;</p><span class="guru-badge koordinator">Kurikulum</span></div>
+          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Fatima Yani Tuahena, S.Pd.</h4><p class="mapel">KAUR Kesiswaan</p><p class="nip">&nbsp;</p><span class="guru-badge koordinator">Kesiswaan</span></div>
           <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Dian Sari Akhiani, S.P.</h4><p class="mapel">KAUR Humas</p><p class="nip">&nbsp;</p><span class="guru-badge koordinator">Humas</span></div>
           <div class="guru-card"><div class="guru-avatar">👨‍🏫</div><h4>Hayat Angkotasan</h4><p class="mapel">KAUR Sarpras</p><p class="nip">&nbsp;</p><span class="guru-badge koordinator">Sarpras</span></div>
           <div class="guru-card"><div class="guru-avatar">👨‍🏫</div><h4>Akbar Tuasikal, S.Pd.</h4><p class="mapel">Pembina OSIS</p><p class="nip">&nbsp;</p><span class="guru-badge koordinator">Pembina OSIS</span></div>
@@ -105,9 +105,9 @@
       <div class="guru-group reveal">
         <div class="guru-group-title"><span class="guru-group-icon">🔧</span> Unit Pendukung</div>
         <div class="guru-grid">
-          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Damiana Salampeasy, S.Pd.</h4><p class="mapel">Kepala Perpustakaan</p><p class="nip">&nbsp;</p><span class="guru-badge unit">Perpustakaan</span></div>
+          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Daramia Salampessy, S.Pd.</h4><p class="mapel">Kepala Perpustakaan</p><p class="nip">&nbsp;</p><span class="guru-badge unit">Perpustakaan</span></div>
           <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Darni Latupono, S.Pd.</h4><p class="mapel">Kepala Lab. IPA</p><p class="nip">&nbsp;</p><span class="guru-badge unit">Lab. IPA</span></div>
-          <div class="guru-card"><div class="guru-avatar">👨‍⚕️</div><h4>Dulehadi Latucossina</h4><p class="mapel">Kepala UKS</p><p class="nip">&nbsp;</p><span class="guru-badge unit">UKS</span></div>
+          <div class="guru-card"><div class="guru-avatar">👨‍⚕️</div><h4>Dulehadji Latucosina</h4><p class="mapel">Kepala UKS</p><p class="nip">&nbsp;</p><span class="guru-badge unit">UKS</span></div>
         </div>
       </div>
 
@@ -115,14 +115,14 @@
       <div class="guru-group reveal">
         <div class="guru-group-title"><span class="guru-group-icon">🏫</span> Wali Kelas</div>
         <div class="guru-grid">
-          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Sari Ahliani, S.P.</h4><p class="mapel">Wali Kelas VII.1</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas VII.1</span></div>
-          <div class="guru-card"><div class="guru-avatar">👨‍🏫</div><h4>Ramdani Salampeasy, S.Pd.</h4><p class="mapel">Wali Kelas VII.2</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas VII.2</span></div>
-          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Hansa Sampean, S.Pd.</h4><p class="mapel">Wali Kelas VIII.1</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas VIII.1</span></div>
-          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Nurdawati, S.Pd.</h4><p class="mapel">Wali Kelas VIII.2</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas VIII.2</span></div>
-          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Selingga Latupone, S.Pd.</h4><p class="mapel">Wali Kelas VIII.3</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas VIII.3</span></div>
-          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Sahabanu Angkotasan, S.Pd.</h4><p class="mapel">Wali Kelas IX.1</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas IX.1</span></div>
-          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Darni Latupone, S.Pd.</h4><p class="mapel">Wali Kelas IX.2</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas IX.2</span></div>
-          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Arna Samur Latucossina, S.Pd.</h4><p class="mapel">Wali Kelas IX.3</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas IX.3</span></div>
+          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Dian Sari Akhliani, S.P.</h4><p class="mapel">Wali Kelas VII.1</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas VII.1</span></div>
+          <div class="guru-card"><div class="guru-avatar">👨‍🏫</div><h4>Daramia Salampesy, S.Pd.</h4><p class="mapel">Wali Kelas VII.2</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas VII.2</span></div>
+          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Hapsa Soumena, S.P.</h4><p class="mapel">Wali Kelas VIII.1</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas VIII.1</span></div>
+          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>indrawati, S.Pd.</h4><p class="mapel">Wali Kelas VIII.2</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas VIII.2</span></div>
+          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Bailanggap Latupono, S.Pd.</h4><p class="mapel">Wali Kelas VIII.3</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas VIII.3</span></div>
+          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Sahalamu Angkotasan, S.Pd.</h4><p class="mapel">Wali Kelas IX.1</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas IX.1</span></div>
+          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Darni Latupono, S.Pd.</h4><p class="mapel">Wali Kelas IX.2</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas IX.2</span></div>
+          <div class="guru-card"><div class="guru-avatar">👩‍🏫</div><h4>Ama Sanur Latucosina, S.Pd.</h4><p class="mapel">Wali Kelas IX.3</p><p class="nip">&nbsp;</p><span class="guru-badge wali">Kelas IX.3</span></div>
         </div>
       </div>
     </section>

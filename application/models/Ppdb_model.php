@@ -65,31 +65,44 @@ class Ppdb_model extends CI_Model {
                         ->result();
     }
 
-    public function jalankan_seleksi() {
-        $setting = $this->get_setting();
-        $jalur_kuota = [
-            'zonasi'   => $setting->kuota_zonasi,
-            'prestasi' => $setting->kuota_prestasi,
-            'afirmasi' => $setting->kuota_afirmasi,
-            'mutasi'   => $setting->kuota_mutasi,
-        ];
+   public function jalankan_seleksi() {
 
-        // Reset semua status ke tunggu
-        $this->db->update('ppdb_pendaftar', ['status' => 'tunggu']);
+    $setting = $this->get_setting();
 
-        foreach ($jalur_kuota as $jalur => $kuota) {
-            $peserta = $this->db->where('jalur', $jalur)
-                                ->order_by('skor_total', 'DESC')
-                                ->get('ppdb_pendaftar')
-                                ->result();
+    $jalur_kuota = [
+        'zonasi'   => $setting->kuota_zonasi,
+        'prestasi' => $setting->kuota_prestasi,
+        'afirmasi' => $setting->kuota_afirmasi,
+        'mutasi'   => $setting->kuota_mutasi,
+    ];
 
-            $count = 0;
-            foreach ($peserta as $p) {
-                $status = ($count < $kuota) ? 'lulus' : 'gagal';
-                $this->db->where('id', $p->id)
-                         ->update('ppdb_pendaftar', ['status' => $status]);
-                $count++;
-            }
+    // reset semua status
+    $this->db->update('ppdb_pendaftar', [
+        'status' => 'tunggu'
+    ]);
+
+    foreach ($jalur_kuota as $jalur => $kuota) {
+
+        $peserta = $this->db
+            ->where('LOWER(jalur)', strtolower($jalur))
+            ->order_by('skor_total', 'DESC')
+            ->get('ppdb_pendaftar')
+            ->result();
+
+        $count = 0;
+
+        foreach ($peserta as $p) {
+
+            $status = ($count < $kuota) ? 'lulus' : 'gagal';
+
+            $this->db
+                ->where('id', $p->id)
+                ->update('ppdb_pendaftar', [
+                    'status' => $status
+                ]);
+
+            $count++;
         }
     }
+}
 }

@@ -6,7 +6,7 @@
       <address>
         Jalan Mutiara No.01 Pelauw, Kec. Pulau Haruku,<br>
         Kab. Maluku Tengah, Provinsi Maluku<br><br>
-        📞 0821-9843-4259<br>
+        📞 0852-1773-3371<br>
         <a href="mailto:smpnegeri1pulauharuku@gmail.com">smpnegeri1pulauharuku@gmail.com</a>
         🕐 Senin – Sabtu: 07.00 – 15.00 WIT
       </address>

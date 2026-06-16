@@ -74,10 +74,10 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-    'hostname' => 'localhost',
+    'hostname' => '127.0.0.1',
     'username' => 'root',
     'password' => '',
-    'database' => 'websmp_100_c1',  // sesuai nama database
+    'database' => 'smp_negeri_100',  // sesuai nama database
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE,

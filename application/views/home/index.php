@@ -10,8 +10,7 @@
     <div class="hero-divider"></div>
     <p class="tagline">Tempat tumbuh Generasi &mdash; Cerdas, Berkarakter dan Berprestasi</p>
     <div class="hero-btns">
-      <a href="<?= base_url('ppdb') ?>" class="btn-hero btn-hero-primary">🎓 Daftar PPDB 2026</a>
-      <a href="<?= base_url('informasi') ?>" class="btn-hero btn-hero-secondary">Profil Sekolah</a>
+      <a href="<?= base_url('ppdb/daftar') ?>" class="btn-hero btn-hero-primary">Daftar</a>
     </div>
   </div>
   <div class="arrow arrow-left" onclick="changeSlide(-1)">&#8249;</div>
@@ -99,5 +98,5 @@
       </div>
     </div>
   </div>
-  <a href="<?= base_url('berita') ?>" class="btn-more">Lihat Berita Lainnya</a>
+  <a href="<?= base_url('home/berita') ?>" class="btn-more">Lihat Berita Lainnya</a>
 </section>

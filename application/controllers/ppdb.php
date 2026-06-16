@@ -17,6 +17,8 @@ class Ppdb extends CI_Controller {
     public function dashboard() {
         $setting = $this->Ppdb_model->get_setting();
         $data = [
+            'active'         => 'ppdb',
+            'title'          => 'Dashboard PPDB',
             'setting'        => $setting,
             'total'          => $this->Ppdb_model->count_all(),
             'lulus'          => $this->Ppdb_model->count_by_status('lulus'),
@@ -26,9 +28,9 @@ class Ppdb extends CI_Controller {
             'aktivitas'      => $this->Ppdb_model->get_aktivitas(5),
             'seleksi_done'   => $this->Ppdb_model->is_seleksi_done(),
         ];
-        $this->load->view('template/header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('ppdb/dashboard', $data);
-        $this->load->view('template/footer');   
+         $this->load->view('templates/footer');   
     }
 
     public function daftar() {
@@ -38,9 +40,9 @@ class Ppdb extends CI_Controller {
             'error'   => $this->session->flashdata('error'),
             'success' => $this->session->flashdata('success'),
         ];
-        $this->load->view('ppdb/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('ppdb/daftar', $data);
-        $this->load->view('ppdb/footer');
+         $this->load->view('templates/footer');
     }
 
     public function simpan() {
@@ -74,56 +76,80 @@ class Ppdb extends CI_Controller {
         }
 
         // Simpan data ke database
-        $data = [
-            'nama'           => $this->input->post('nama'),
-            'nisn'           => $nisn,
-            'nik'            => $this->input->post('nik'),
-            'jenis_kelamin'  => $this->input->post('jenis_kelamin'),
-            'tempat_lahir'   => $this->input->post('tempat_lahir'),
-            'tanggal_lahir'  => $this->input->post('tanggal_lahir'),
-            'agama'          => $this->input->post('agama'),
-            'asal_sekolah'   => $this->input->post('asal_sekolah'),
-            'alamat'         => $this->input->post('alamat'),
-            'kecamatan'      => $this->input->post('kecamatan'),
-            'jarak_km'       => $this->input->post('jarak_km'),
-            'jalur'          => $this->input->post('jalur'),
-            'nama_ayah'      => $this->input->post('nama_ayah'),
-            'nama_ibu'       => $this->input->post('nama_ibu'),
-            'no_hp'          => $this->input->post('no_hp'),
-            'penghasilan'    => $this->input->post('penghasilan'),
-            'berkas_akta'    => $uploaded['berkas_akta']   ?? null,
-            'berkas_kk'      => $uploaded['berkas_kk']     ?? null,
-            'berkas_rapor'   => $uploaded['berkas_rapor']  ?? null,
-            'berkas_ijazah'  => $uploaded['berkas_ijazah'] ?? null,
-            'berkas_foto'    => $uploaded['berkas_foto']   ?? null,
-            'berkas_piagam'  => $uploaded['berkas_piagam'] ?? null,
-            'status'         => 'tunggu',
-            'created_at'     => date('Y-m-d H:i:s'),
-        ];
+       $data = [
+    'userid'         => $this->session->userdata('userid'),
 
+    'namalengkap'    => $this->input->post('nama'),
+    'nisn'           => $nisn,
+    'nik'            => $this->input->post('nik'),
+
+    'jeniskelamin'   => $this->input->post('jenis_kelamin'),
+    'tempatlahir'    => $this->input->post('tempat_lahir'),
+    'tanggallahir'   => $this->input->post('tanggal_lahir'),
+
+    'alamat'         => $this->input->post('alamat'),
+    'sekolahasal'    => $this->input->post('asal_sekolah'),
+
+    'notelepon'      => $this->input->post('no_hp'),
+
+    'email'          => $this->session->userdata('email'),
+
+    'jalur'          => $this->input->post('jalur'),
+
+    'berkas_akta'    => $uploaded['berkas_akta'] ?? null,
+    'berkas_kk'      => $uploaded['berkas_kk'] ?? null,
+    'berkas_rapor'   => $uploaded['berkas_rapor'] ?? null,
+    'berkas_ijazah'  => $uploaded['berkas_ijazah'] ?? null,
+    'berkas_foto'    => $uploaded['berkas_foto'] ?? null,
+
+    'status'         => 'tunggu',
+    'created_at'     => date('Y-m-d H:i:s'),
+];
         $this->Ppdb_model->simpan_pendaftar($data);
         $this->session->set_flashdata('success', 'Pendaftaran berhasil! Nomor NISN: ' . $nisn);
         redirect('ppdb/daftar');
     }
 
-    public function pengumuman() {
-        $data = ['hasil' => $this->Ppdb_model->get_lulus()];
-        $this->load->view('ppdb/header');
-        $this->load->view('ppdb/pengumuman', $data);
-        $this->load->view('ppdb/footer');
-    }
+public function pengumuman() {
+
+    $data = [
+        'title'         => 'Pengumuman PPDB',
+        'active'        => 'pengumuman',
+        'setting'       => $this->Ppdb_model->get_setting(),
+        'keyword'       => '',
+        'daftar_lulus'  => $this->Ppdb_model->get_lulus(),
+    ];
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('ppdb/pengumuman', $data);
+    $this->load->view('templates/footer');
+}
+
+    
 
     public function jalur() {
-        $this->load->view('ppdb/header');
-        $this->load->view('ppdb/jalur');
-        $this->load->view('ppdb/footer');
-    }
 
-    public function jadwal() {
-        $this->load->view('ppdb/header');
-        $this->load->view('ppdb/jadwal');
-        $this->load->view('ppdb/footer');
-    }
+    $data = [
+        'title'  => 'Jalur PPDB',
+        'active' => 'jalur'
+    ];
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('ppdb/jalur');
+    $this->load->view('templates/footer');
+}
+
+public function jadwal() {
+
+    $data = [
+        'title'  => 'Jadwal PPDB',
+        'active' => 'jadwal'
+    ];
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('ppdb/jadwal');
+    $this->load->view('templates/footer');
+}
 
     public function jalankan_seleksi() {
         $this->Ppdb_model->jalankan_seleksi();

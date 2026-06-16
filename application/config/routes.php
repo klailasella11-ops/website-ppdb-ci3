@@ -1,54 +1,44 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*
-| -------------------------------------------------------------------------
-| URI ROUTING
-| -------------------------------------------------------------------------
-| This file lets you re-map URI requests to specific controller functions.
-|
-| Typically there is a one-to-one relationship between a URL string
-| and its corresponding controller class/method. The segments in a
-| URL normally follow this pattern:
-|
-|	example.com/class/method/id/
-|
-| In some instances, however, you may want to remap this relationship
-| so that a different class/function is called than the one
-| corresponding to the URL.
-|
-| Please see the user guide for complete details:
-|
-|	https://codeigniter.com/userguide3/general/routing.html
-|
-| -------------------------------------------------------------------------
-| RESERVED ROUTES
-| -------------------------------------------------------------------------
-|
-| There are three reserved routes:
-|
-|	$route['default_controller'] = 'welcome';
-|
-| This route indicates which controller class should be loaded if the
-| URI contains no data. In the above example, the "welcome" class
-| would be loaded.
-|
-|	$route['404_override'] = 'errors/page_missing';
-|
-| This route will tell the Router which controller/method to use if those
-| provided in the URL cannot be matched to a valid route.
-|
-|	$route['translate_uri_dashes'] = FALSE;
-|
-| This is not exactly a route, but allows you to automatically route
-| controller and method names that contain dashes. '-' isn't a valid
-| class or method name character, so it requires translation.
-| When you set this option to TRUE, it will replace ALL dashes in the
-| controller and method URI segments.
-|
-| Examples:	my-controller/index	-> my_controller/index
-|		my-controller/my-method	-> my_controller/my_method
-*/
-$route['default_controller'] = 'home';
-$route['404_override'] = '';
+// =====================
+// DEFAULT
+// =====================
+$route['default_controller']   = 'Informasi';
+$route['404_override']         = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// =====================
+// HALAMAN PUBLIK
+// =====================
+$route['informasi'] = 'Informasi/index';
+$route['home']      = 'home/index';
+$route['ppdb']      = 'ppdb/index';
+$route['login']     = 'Auth/index';
+
+// =====================
+// AUTH PPDB (baru – untuk siswa/orang tua)
+// =====================
+$route['auth']          = 'Auth/index';      // tampilkan halaman login & register (satu view)
+$route['auth/login']    = 'Auth/login';      // POST AJAX → JSON
+$route['auth/register'] = 'Auth/register';   // POST AJAX → JSON
+$route['auth/logout']   = 'Auth/logout';
+$route['auth/forgot']   = 'Auth/forgot';     // lupa password (placeholder)
+
+// =====================
+// ADMIN
+// =====================
+$route['admin']                       = 'Admin/index';
+$route['admin/kelola_admin']          = 'Admin/kelola_admin';
+$route['admin/tambah_admin']          = 'Admin/tambah_admin';
+$route['admin/hapus_admin']           = 'Admin/hapus_admin';
+$route['admin/reset_password/(:num)'] = 'Admin/reset_password/$1';
+$route['admin/kelola_user']           = 'Admin/kelola_user';
+$route['admin/hapus_user']            = 'Admin/hapus_user';
+$route['admin/formulir']              = 'Admin/formulir';
+$route['admin/hapus_formulir/(:any)'] = 'Admin/hapus_formulir/$1';
+$route['admin/edit_formulir']         = 'Admin/edit_formulir';
+$route['admin/fetch_data']            = 'Admin/fetch_data';
+$route['admin/view_formulir/(:any)']  = 'Admin/view_formulir/$1';
+$route['admin/unduh/(:any)']          = 'Admin/unduh/$1';
+$route['admin/konfirmasi']            = 'Admin/konfirmasi';

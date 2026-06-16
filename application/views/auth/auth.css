@@ -1,0 +1,415 @@
+/* ============================================================
+   auth.css  –  Halaman Login & Registrasi PPDB
+   SMP Negeri 1 Pulau Haruku  |  2025/2026
+   Path : assets/css/auth.css
+   ============================================================ */
+
+/* ── GOOGLE FONT sudah di-load dari view (link tag) ── */
+
+/* ── CSS VARIABLES ─────────────────────────────────────── */
+:root {
+    --navy    : #0d1e4a;
+    --blue    : #1a3a8f;
+    --accent  : #2563eb;
+    --gold    : #f5a623;
+    --light   : #f0f4ff;
+    --gray    : #94a3b8;
+    --border  : #dde3f0;
+    --white   : #ffffff;
+    --danger  : #ef4444;
+    --success : #22c55e;
+    --text    : #1e293b;
+    --sub     : #64748b;
+}
+
+/* ── RESET ─────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── BODY / BACKGROUND ─────────────────────────────────── */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0d1e4a 0%, #1a3a8f 50%, #2563eb 100%);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dekoratif blob */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: .15;
+    pointer-events: none;
+}
+body::before {
+    width: 500px; height: 500px;
+    background: #f5a623;
+    top: -150px; right: -100px;
+}
+body::after {
+    width: 400px; height: 400px;
+    background: #60a5fa;
+    bottom: -120px; left: -80px;
+}
+
+/* ── CARD ───────────────────────────────────────────────── */
+.card {
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: 0 32px 80px rgba(13, 30, 74, .35);
+    width: 100%;
+    max-width: 460px;
+    padding: 40px 40px 36px;
+    position: relative;
+    z-index: 1;
+    animation: slideUp .5s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── HEADER ─────────────────────────────────────────────── */
+.header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.logo-wrap {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    overflow: hidden;
+    margin: 0 auto 14px;
+    box-shadow: 0 4px 20px rgba(245, 166, 35, .3);
+}
+
+.logo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Fallback jika gambar tidak ada */
+.logo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--navy);
+    display: none;          /* ditampilkan via JS onerror */
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3;
+    padding: 8px;
+}
+
+.header h1 {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.25;
+    letter-spacing: -.3px;
+}
+
+.header p {
+    font-size: 12.5px;
+    color: var(--sub);
+    margin-top: 4px;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+/* ── ALERT ──────────────────────────────────────────────── */
+.alert {
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    margin-bottom: 18px;
+    display: none;          /* .show → flex */
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+}
+
+.alert.show { display: flex; }
+
+.alert svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 1px;
+}
+
+.alert-danger  { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; }
+.alert-success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; }
+
+/* ── TABS ───────────────────────────────────────────────── */
+.tabs {
+    display: flex;
+    background: var(--light);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 28px;
+    gap: 4px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .25s ease;
+    background: transparent;
+    color: var(--sub);
+}
+
+.tab-btn.active {
+    background: var(--accent);
+    color: var(--white);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, .35);
+}
+
+.tab-btn:not(.active):hover {
+    background: var(--border);
+    color: var(--text);
+}
+
+/* ── PANELS ─────────────────────────────────────────────── */
+.panel { display: none; }
+.panel.active {
+    display: block;
+    animation: fadeIn .3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── FORM GROUP ─────────────────────────────────────────── */
+.form-group { margin-bottom: 16px; }
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+/* ── INPUT WRAP ─────────────────────────────────────────── */
+.input-wrap { position: relative; }
+
+.input-wrap > svg {              /* ikon kiri */
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray);
+    width: 17px;
+    height: 17px;
+    pointer-events: none;
+}
+
+.input-wrap input {
+    width: 100%;
+    padding: 11px 14px 11px 40px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--light);
+    transition: border-color .2s, box-shadow .2s, background .2s;
+    outline: none;
+}
+
+.input-wrap input::placeholder { color: var(--gray); }
+
+.input-wrap input:focus {
+    border-color: var(--accent);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+}
+
+/* State error pada input */
+.input-wrap input.is-error {
+    border-color: var(--danger);
+    background: #fff5f5;
+}
+
+/* Tombol toggle show/hide password */
+.toggle-pw {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--gray);
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-pw:hover { color: var(--accent); }
+
+/* Pesan error per-field */
+.error-msg {
+    font-size: 12px;
+    color: var(--danger);
+    margin-top: 5px;
+    display: none;
+}
+
+.error-msg.show { display: block; }
+
+/* ── LUPA PASSWORD LINK ──────────────────────────────────── */
+.forgot {
+    text-align: right;
+    margin-top: -8px;
+    margin-bottom: 16px;
+}
+
+.forgot a {
+    font-size: 12.5px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot a:hover { text-decoration: underline; }
+
+/* ── TOMBOL UTAMA ───────────────────────────────────────── */
+.btn-primary {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, var(--blue), var(--accent));
+    color: var(--white);
+    border: none;
+    border-radius: 11px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: opacity .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, .35);
+    margin-top: 6px;
+}
+
+.btn-primary:hover {
+    opacity: .9;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px rgba(37, 99, 235, .4);
+}
+
+.btn-primary:active { transform: translateY(0); }
+
+/* Spinner loading */
+.btn-primary .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, .4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+    display: none;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.btn-primary.loading .spinner   { display: block; }
+.btn-primary.loading .btn-label { opacity: .7; }
+
+/* ── PASSWORD STRENGTH METER ────────────────────────────── */
+.pw-strength { margin-top: 8px; }
+
+.pw-bars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+.pw-bar {
+    flex: 1;
+    height: 4px;
+    border-radius: 99px;
+    background: var(--border);
+    transition: background .3s;
+}
+
+.pw-bar.weak   { background: var(--danger); }
+.pw-bar.medium { background: var(--gold); }
+.pw-bar.strong { background: var(--success); }
+
+.pw-label {
+    font-size: 11.5px;
+    color: var(--sub);
+}
+
+/* ── DIVIDER / SWITCH PANEL ─────────────────────────────── */
+.divider {
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--sub);
+    margin: 20px 0 4px;
+}
+
+.divider a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.divider a:hover { text-decoration: underline; }
+
+/* ── BACK LINK ───────────────────────────────────────────── */
+.back-link {
+    text-align: center;
+    margin-top: 22px;
+}
+
+.back-link a {
+    font-size: 13px;
+    color: rgba(255, 255, 255, .7);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color .2s;
+}
+
+.back-link a:hover { color: var(--white); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 500px) {
+    .card { padding: 30px 24px 28px; }
+}

@@ -8,7 +8,7 @@
   <div style="text-align:right;">
     <div style="font-size:13px;opacity:.8;">Pengumuman Resmi</div>
     <div style="font-size:20px;font-weight:900;font-family:'Poppins',sans-serif;">
-      <?= date('d M Y', strtotime($setting->tgl_pengumuman)) ?>
+      <?= date('d M Y') ?>
     </div>
   </div>
 </div>
@@ -46,7 +46,7 @@
     <div class="result-header <?= $sc ?>">
       <div class="result-icon"><?= $ico ?></div>
       <div>
-        <div class="result-name"><?= htmlspecialchars($found->nama) ?></div>
+        <div class="result-name"><?= htmlspecialchars($found->namalengkap) ?></div>
         <div class="result-status"><?= $st ?></div>
       </div>
     </div>
@@ -84,7 +84,7 @@
         <?php if ($daftar_lulus): foreach ($daftar_lulus as $i => $s): ?>
         <tr>
           <td><?= $i + 1 ?></td>
-          <td><strong><?= htmlspecialchars($s->nama) ?></strong></td>
+          <td><strong><?= htmlspecialchars($s->namalengkap) ?></strong></td>
           <td style="font-family:monospace;font-size:12px"><?= $s->nisn ?></td>
           <td><span class="tag tag-blue" style="text-transform:capitalize"><?= $s->jalur ?></span></td>
           <td><strong><?= number_format($s->skor_total, 1) ?></strong></td>

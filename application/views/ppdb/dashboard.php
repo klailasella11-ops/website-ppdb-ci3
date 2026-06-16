@@ -62,10 +62,10 @@
         <div class="activity-item">
           <div class="a-dot green">📝</div>
           <div class="a-text">
-            <div class="name"><?= htmlspecialchars($a->nama) ?></div>
+            <div class="name"><?= htmlspecialchars($a->namalengkap) ?></div>
             <div class="desc">Mendaftar jalur <?= ucfirst($a->jalur) ?></div>
           </div>
-          <div class="a-time"><?= $this->_time_ago($a->created_at) ?></div>
+          <div class="a-time"><?= date('d M Y H:i', strtotime($a->created_at)) ?></div>
         </div>
         <?php endforeach; else: ?>
         <p style="text-align:center;padding:24px;color:var(--teks-muted);">Belum ada pendaftar</p>
@@ -112,15 +112,47 @@
     </div>
 
     <div class="panel">
-      <div class="panel-head"><h3>🚀 Aksi Cepat</h3></div>
-      <div class="panel-body" style="display:flex;flex-direction:column;gap:8px;">
-        <a href="<?= base_url('ppdb/daftar') ?>" class="btn btn-primary" style="justify-content:center;">📝 Daftar Sekarang</a>
-        <?php if (!$seleksi_done): ?>
-        <a href="<?= base_url('ppdb/jalankan_seleksi') ?>" class="btn btn-gold" style="justify-content:center;"
-           onclick="return confirm('Jalankan seleksi otomatis sekarang?')">⚙️ Jalankan Seleksi</a>
-        <?php else: ?>
-        <a href="<?= base_url('ppdb/pengumuman') ?>" class="btn btn-green" style="justify-content:center;">📣 Lihat Pengumuman</a>
+  <div class="panel-head"><h3>🚀 Aksi Cepat</h3></div>
+
+  <div class="panel-body" style="display:flex;flex-direction:column;gap:8px;">
+
+    <a href="<?= base_url('ppdb/daftar') ?>"
+       class="btn btn-primary"
+       style="justify-content:center;">
+
+       📝 Daftar Sekarang
+
+    </a>
+
+    <?php if (!$seleksi_done): ?>
+
+        <?php if($this->session->userdata('role') == 'admin'): ?>
+
+            <a href="<?= base_url('ppdb/jalankan_seleksi') ?>"
+               class="btn btn-gold"
+               style="justify-content:center;"
+               onclick="return confirm('Jalankan seleksi sekarang?')">
+
+               ⚙️ Jalankan Seleksi
+
+            </a>
+
         <?php endif; ?>
+
+    <?php else: ?>
+
+        <a href="<?= base_url('ppdb/pengumuman') ?>"
+           class="btn btn-green"
+           style="justify-content:center;">
+
+           📣 Lihat Pengumuman
+
+        </a>
+
+    <?php endif; ?>
+
+  </div>
+</div>
       </div>
     </div>
   </div>
